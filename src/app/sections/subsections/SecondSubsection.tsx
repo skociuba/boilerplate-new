@@ -1,14 +1,11 @@
 import React from 'react';
 import Image from 'next/image';
 
+import {SecondSection} from '../../../../types/types';
+
 import Check from './../../../../public/icons/check-square.svg';
 
-interface SectionContent {
-  description: Array<string>;
-  title: string;
-}
-
-const SecondSubsection: React.FC<{content: SectionContent}> = ({content}) => (
+const SecondSubsection: React.FC<{content: SecondSection}> = ({content}) => (
   <div className="mx-10 flex transform flex-col justify-center  text-white lg:min-h-[82vh]">
     <div className="mb-5 w-full pt-5 ">
       <h1 className="text-3xl font-bold lg:pl-[6%]">{content.title}</h1>
