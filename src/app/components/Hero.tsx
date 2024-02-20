@@ -1,12 +1,14 @@
+'use client';
 import React from 'react';
 import Image from 'next/image';
+import {motion} from 'framer-motion';
 
 import {HeroContent} from '../../../types/types';
+import {variants} from '../helpers/index';
 
 import Target from './../../../public/icons/target.svg';
 import Phone from './../../../public/icons/phone.svg';
 import Email from './../../../public/icons/at-sign.svg';
-
 const Hero: React.FC<{heroContent: HeroContent}> = ({heroContent}) => (
   <section id="home">
     <div className="custom-img mb-12 flex h-screen items-center justify-center bg-cover bg-fixed bg-center lg:text-2xl">
@@ -17,24 +19,36 @@ const Hero: React.FC<{heroContent: HeroContent}> = ({heroContent}) => (
           {heroContent.title}
         </h2>
         <div className="flex flex-col md:flex-row lg:flex-col">
-          <p className="flex items-center py-5">
+          <motion.p
+            variants={variants(2)}
+            initial="hidden"
+            animate="visible"
+            className="flex items-center py-5">
             {' '}
             <Image src={Phone} alt="Profile" width={20} height={20} />
             <span className="mx-4">
-              <a href="tel:${heroContent.phone}">{heroContent.phone}</a>
+              <a href={`tel:${heroContent.phone}`}>{heroContent.phone}</a>
             </span>
-          </p>
-          <p className="flex items-center py-5">
+          </motion.p>
+          <motion.p
+            variants={variants(2.5)}
+            initial="hidden"
+            animate="visible"
+            className="flex items-center py-5">
             {' '}
             <Image src={Email} alt="Profile" width={20} height={20} />
             <span className="mx-4">
-              <a href="mailto:example@gmail.com">{heroContent.email}</a>
+              <a href={`mailto:${heroContent.email}`}>{heroContent.email}</a>
             </span>
-          </p>
-          <p className="flex items-center py-5">
+          </motion.p>
+          <motion.p
+            variants={variants(3)}
+            initial="hidden"
+            animate="visible"
+            className="flex items-center py-5">
             <Image src={Target} alt="Profile" width={20} height={20} />
             <span className="mx-4">{heroContent.address}</span>
-          </p>
+          </motion.p>
         </div>
 
         <div className="mt-12 flex flex-col justify-start md:flex-row">
