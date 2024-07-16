@@ -7,6 +7,7 @@ const Home: React.FC = () => (
   <>
     <div className="w-full overflow-hidden">
       <Nav />
+      Hello
       <Hero heroContent={heroContent} />
       <First />
       <Second />
